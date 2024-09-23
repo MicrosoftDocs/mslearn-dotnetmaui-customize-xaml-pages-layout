@@ -2,6 +2,7 @@
 
 public partial class MainPage : ContentPage
 {
+    public const double MyFontSize = 10;
     public MainPage()
     {
         InitializeComponent();
@@ -46,4 +47,11 @@ public partial class MainPage : ContentPage
 
     void OnNormalTip(object sender, EventArgs e) { tipPercentSlider.Value = 15; }
     void OnGenerousTip(object sender, EventArgs e) { tipPercentSlider.Value = 20; }
+}
+public class GlobalFontSizeExtension : IMarkupExtension
+{
+    public object ProvideValue(IServiceProvider serviceProvider)
+    {
+        return MainPage.MyFontSize;
+    }
 }
