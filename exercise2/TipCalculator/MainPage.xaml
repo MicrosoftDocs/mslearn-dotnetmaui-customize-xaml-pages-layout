@@ -2,29 +2,29 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TipCalculator"
+             xmlns:mycode="clr-namespace:TipCalculator"
              x:Class="TipCalculator.MainPage">
 
-    <VerticalStackLayout>
+    <Grid Margin="20,35,20,20" Padding="10" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,*">
+        <Label Text="Bill" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Margin="0,0,0,30"/>
+        <Entry x:Name="billInput" Placeholder="Enter Amount" Keyboard="Numeric" Grid.Row="0" Grid.Column="1" Margin="0,0,0,30"/>
 
-        <Label Text="Bill" />
-        <Entry x:Name="billInput" Placeholder="Enter Amount" Keyboard="Numeric" />
+        <Label Text="Tip" Grid.Row="1" Grid.Column="0"/>
+        <Label x:Name="tipOutput" Text="0.00" Grid.Row="1" Grid.Column="1"/>
 
-        <Label Text="Tip"   />
-        <Label x:Name="tipOutput" Text="0.00" />
+        <Label Text="Total" Grid.Row="2" Grid.Column="0"/>
+        <Label x:Name="totalOutput" Text="0.00" Grid.Row="2" Grid.Column="1"/>
 
-        <Label Text="Total" />
-        <Label x:Name="totalOutput" Text="0.00" />
+        <Label Text="Tip Percentage" Grid.Row="3" Grid.Column="0"/>
+        <Label x:Name="tipPercent" Text="15%" Grid.Row="3" Grid.Column="1"/>
 
-        <Label Text="Tip Percentage" />
-        <Label x:Name="tipPercent" Text="15%" />
-        <Slider x:Name="tipPercentSlider" Minimum="0" Maximum="100" Value="15" />
+        <Slider x:Name="tipPercentSlider" Minimum="0" Maximum="100" Value="15" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10"/>
 
-        <Button Text="15%" Clicked="OnNormalTip" />
-        <Button Text="20%" Clicked="OnGenerousTip" />
+        <Button Text="15%" Clicked="OnNormalTip" Grid.Row="5" Grid.Column="0" Margin="5"/>
+        <Button Text="20%" Clicked="OnGenerousTip" Grid.Row="5" Grid.Column="1" Margin="5"/>
 
-        <Button x:Name="roundDown" Text="Round Down" />
-        <Button x:Name="roundUp"   Text="Round Up" />
-
-    </VerticalStackLayout>
-
+        <Button x:Name="roundDown" Text="Round Down" Grid.Row="6" Grid.Column="0" Margin="5"/>
+        <Button x:Name="roundUp"   Text="Round Up" Grid.Row="6" Grid.Column="1" Margin="5"/>
+    </Grid>
+    
 </ContentPage>
